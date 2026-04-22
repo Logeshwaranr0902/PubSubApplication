@@ -1,3 +1,8 @@
 spring:
   application:
     name: PubSubApplication
+  cloud:
+    gcp:
+      project-id: ${SPRING_CLOUD_GCP_PROJECT_ID:your-real-project-id}
+      pubsub:
+        enabled: true

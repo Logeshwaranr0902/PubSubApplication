@@ -33,6 +33,7 @@ jobs:
             --image gcr.io/${{ secrets.GCP_PROJECT_ID }}/sender-service \
             --region us-central1 \
             --allow-unauthenticated
+            --service-account pub-sub@learningpurpose-492409.iam.gserviceaccount.com
 
       - name: Build and Push Receiver
         run: |
