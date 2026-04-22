@@ -3,6 +3,8 @@ spring:
     name: PubSubApplication
   cloud:
     gcp:
-      project-id: ${SPRING_CLOUD_GCP_PROJECT_ID:your-real-project-id}
+      project-id: ${SPRING_CLOUD_GCP_PROJECT_ID:learningpurpose-492409}
+      credentials:
+        location: ${GCP_CREDENTIALS:file:C:\Users\loges\Downloads\PubSubApplication\service1\gcp-key.json}
       pubsub:
         enabled: true
