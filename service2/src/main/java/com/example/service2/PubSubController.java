@@ -3,10 +3,10 @@ package com.example.service2;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
 import java.util.Base64;
 
 @RestController
@@ -38,4 +38,22 @@ public class PubSubController {
             return ResponseEntity.status(500).body("Internal Server Error");
         }
     }
+
+    @PostMapping("/receive-task")
+    public ResponseEntity<String> getTask(@RequestBody String messagePayload) {
+        try {
+            // Your logic here
+            log.info("Message received: {}", messagePayload);
+
+            // Return 200 ONLY after the work is successfully finished
+            return ResponseEntity.ok("Success");
+
+        } catch (Exception e) {
+            log.error("Task processing failed: ", e);
+
+
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+        }
+    }
+
 }
