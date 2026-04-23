@@ -35,7 +35,7 @@ public class PubSubController {
         }
     }
 
-    @PostMapping("/publish2")
+    @GetMapping("/publish2")
     public void createCloudTask(@RequestParam("msg") String messagePayload) throws IOException {
         try (CloudTasksClient client = CloudTasksClient.create()) {
             String queuePath = QueueName.of(projectId, "us-central1", "my-worker-queue").toString();

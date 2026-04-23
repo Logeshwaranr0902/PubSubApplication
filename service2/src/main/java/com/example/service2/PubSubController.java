@@ -39,7 +39,7 @@ public class PubSubController {
         }
     }
 
-    @GetMapping("/receive-task")
+    @PostMapping("/receive-task")
     public ResponseEntity<String> getTask(@RequestBody String messagePayload) {
         try {
             // Your logic here
